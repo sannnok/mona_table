@@ -43,12 +43,12 @@ export class CustomTableComponent implements OnInit {
     // It means the container will expand until it reaches `200px` (20 * 10)
     // and will keep this size.
     if (numberOfItems <= visibleItems) {
-      return `${itemHeight * numberOfItems + 65}px`;
+      return `${itemHeight * numberOfItems + 70}px`;
     }
   
     // This function is called from the template so it ensures the container will have 
     // the final height if number of items are greater than the value in "visibleItems".
-    return `${itemHeight * visibleItems + 65}px`;
+    return `${itemHeight * visibleItems + 70}px`;
   }
 
 }
