@@ -1,0 +1,24 @@
+<mat-progress-bar mode="buffer" *ngIf="this.loader"></mat-progress-bar>
+<div class="main-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Select time interval</mat-label>
+    <mat-select [(value)]="selectedTimeInterval" (selectionChange)="onIntervalChange($event)">
+      <mat-option value="5">5 mins</mat-option>
+      <mat-option value="30">30 mins</mat-option>
+      <mat-option value="60">1 hour</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-tab-group (selectedTabChange)="triggerLoader($event)" (focusChange)="triggerLoader($event, true)">
+    <mat-tab label="Custom (Optimized with Virtual Scroll)">
+      <ng-template matTabContent>
+        <app-custom-table [dataSource]="deviceData" [parametersCount]="2"></app-custom-table>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Standart Usage (Material Table)">
+      <ng-template matTabContent>
+        <app-mat-table [dataSource]="deviceData"></app-mat-table>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

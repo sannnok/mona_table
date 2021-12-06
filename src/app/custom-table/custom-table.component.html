@@ -1,0 +1,22 @@
+<div class="custom-main-container" [style.height]="calculateContainerHeight()">
+    <div class="custom-grid">
+        <div class="double-raw mat-header-row">
+            <div class="double-cell double-cell-primary">
+                <div class="header mat-header-cell"><b>Device</b></div>
+                <div class="content mat-cell"><b>BPM</b></div>
+                <div class="content mat-cell"><b>Temperature</b></div>
+            </div>
+        </div>
+    </div>
+    <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="120" class="example-viewport" #scrollViewport>
+        <div class="custom-grid">
+            <div class="double-raw mat-header-row" style="color: gray;">
+                <div class="double-cell" *cdkVirtualFor="let el of dataSource">
+                    <div class="header mat-header-cell" [innerHtml]="el.timeRefDay | tableHeader"></div>
+                    <div class="content mat-cell" [innerHtml]="el.bpmDevice | patDataDescription"></div>
+                    <div class="content mat-cell" [innerHtml]="el.tempDevice | patDataDescription"></div>
+                </div>
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport>
+</div>

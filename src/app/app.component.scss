@@ -1,0 +1,16 @@
+.main-container {
+    margin: 0 auto;
+    width: 800px;
+    padding: 24px;
+
+    mat-form-field, table {
+        width: 100%;
+    }
+}
+
+.scroll-container {
+    overflow: auto;
+    width: 800px;
+}
+
+
